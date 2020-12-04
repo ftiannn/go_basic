@@ -1,0 +1,110 @@
+Golang
+
+* Go is good for Web services at scale, networking, massively concurrent applications,
+operating systems, automation, and command-line tools or cryptography. Go is by design, expressive, comprehensible ,sophisticated, yet clean, clear and easy to read.
+
+* Go is on a trajectory to become the next enterprise programming language.
+
+TLDR: provides high performance like C and C++, super efficient, concurrency friendly like Java, but also simplicity like Python
+
+
+Playground: https://play.golang.org/
+Documentation: https://golang.org/pkg/
+gofmt (golang formatting)/ fmt: name of go standard library package used mainly to print out messages at standard output (console)
+
+
+Installation: https://golang.org/dl/
+Check version using cmd: go version (restart terminal if not showing)
+
+In ~/zshrc or ~/bashrc:
+	export GOROOT=/usr/local/go
+	export GOPATH=$HOME/go
+	export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+In VSCode: 
+Add extension: Go
+After installing extension -> Command Palate: ‘go install’ -> click all packages and save —> wait for installation
+
+To run: go run main.go (compile and run/ doesn’t produce exe)
+To install: go install
+To build: 
+* go build main.go (compiles and produce exe)
+* go build -o app (produce exe file call app)
+
+// Compile the application for Windows and 64bit CPUs:
+GOOS=windows GOARCH=amd64 go build -o xxx.exe
+
+// For Linux and Mac it's not necessary to use a file's extension.
+// Compile the application for Linux and 64bit CPUs:
+GOOS=linux GOARCH=amd64 go build -o xxx
+
+// Compile the application for Mac and 64bit CPUs:
+GOOS=darwin GOARCH=amd64 go build -o  xxx
+
+* xxx : app’s name
+
+
+In terminal to check env variables: Go env
+
+
+Naming convention: (BEST PRACTICES)
+* Names start with a letter or an underscore (_)
+* Case matters: quickSort and QuickSort are different variables
+* GO keywords (25 words) cannot be used as variables (check out https://golang.org/ref/spec#Keywords)
+* Keep variables name as simple as possible (eg. max_value => mv / max)
+* Using camelCap, not underscore (eg. max_value => maxValue)
+
+Using Constants instead of var:
+- Constants belong to compile time and its created at compile time. Its value cannot be changed while the program is running
+- Another adv of using constants is that GO cannot detect runtime errors at compile time but constants belong to compile time so error can be detected earlier
+
+
+Go data-type
+- numeric types: 
+ * int8, int16, int32, int64  (int stands for int32/int64)
+ * uint8, uint16, uint32, uint64: used to represent unsigned (positive) integers (uint stands for uint32/uint64)
+ * float32, float64
+ * complex32, complex64
+ * byte (alias for uint8)
+ * rune (alias for int32)
+
+- Bool type:
+* pre-defined constants: true or false
+
+- String type:
+* Unicode chars written enclosed by double quotes
+* A string value is a sequence of bytes
+
+- Array and Slice type:
+* An array is a numbered sequence of elements of a single type, called the element type
+* An array has a fixed length, but a slice has a dynamic length
+
+- Map type:
+* A map is an unordered group of elements of one type, indexed by a set of unique keys of another type
+* A map in Go is similar to dictionary in Python
+
+Operators:
+- Arithmetic and bitwise operators (+, 0, *, /, %, &, |, ^, <<, >>)
+- increment assignment (a += 1) / increment statement (a++)
+- decrement assignemnt (a -= 1) / decrement statement (a--) 
+- multiplication assignemnt (a *= 10)
+- division assignemnt (a /= 5)
+- modulus assignemnt (a %= 2)
+- For pointers (&) and Channels (<-)
+
+
+Scope: (Visibility)
+- Scope or the lifetime of a variable is the interval of time during whcih it exists as the program executes
+- A name cannot be declared again in the same scope (for example a function in the package scope)
+
+
+Slices vs Arrays - both can only contains same data type
+- Slices: dynamic length / Arrays: fixed length
+- Slices: length not part of its types (belong to runtime) / Arrays: length is part of Arrays
+- Slices: zero value = nil / Arrays: zero-values = all 0
+
+Slices -> when creating slice, go creates a hidden array called BACKING ARRAY  (Nil slice doesnt have it)
+* implements a slice as a data structure called slice header (runtime rep of a slice) which contains: 
+	- the address of the backing array (pointer)
+	- the length of the slice -> len()
+	- the capacity of the slice -> cap()
