@@ -108,3 +108,8 @@ Slices -> when creating slice, go creates a hidden array called BACKING ARRAY  (
 	- the address of the backing array (pointer)
 	- the length of the slice -> len()
 	- the capacity of the slice -> cap()
+
+Strings in Go
+- 2 additional int types (byte -> alias for uint8) and (rune -> alias for int32)
+- byte and runes are used to distinguish characters from integers values
+ 
