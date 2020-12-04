@@ -88,22 +88,42 @@ func main() {
 	}
 
 	// SLICES APPENDING
-	num := []int{2, 3}
+	h := []int{2, 3}
 
-	num = append(num, 10)
-	fmt.Println(num) // [2 3 10]
+	// append() returns a new slice after appending a value to its end
+	h = append(h, 10)
+	fmt.Println(h) //-> [2 3 10]
 
-	num = append(num, 20, 30, 40)
-	fmt.Println(num) // [2 3 10 20 30 40]
+	// appending more elements at once
+	h = append(h, 20, 30, 40)
+	fmt.Println(h) //-> [2 3 10 20 30 40]
 
-	n1 := []int{100, 200}
-	numbers = append(num, n1...)
-	fmt.Println(num) // [2 3 10 20 30 40]
+	// appending all elements of a slice to another slice
+	n1 := []int{100, 200, 300}
+	h = append(h, n1...) // ... is the ellipsis operator
+	fmt.Println(h)       // -> [2 3 10 20 30 40 100 200 300]
 
+	//** Slice's Length and Capacity **//
+	num := []int{1}
+	fmt.Printf("Length: %d, Capacity: %d \n", len(num), cap(num)) // Length: 1, Capacity: 1
+
+	num = append(num, 2)
+	fmt.Printf("Length: %d, Capacity: %d \n", len(num), cap(num)) // Length: 2, Capacity: 2
+
+	num = append(num, 3)
+	fmt.Printf("Length: %d, Capacity: %d \n", len(num), cap(num)) // Length: 3, Capacity: 4
+
+	num = append(num, 4, 5)
+	fmt.Printf("Length: %d, Capacity: %d \n", len(num), cap(num)) // Length: 5, Capacity: 8
+
+	// the capacity of the new backing array is now larger than the length --> inefficent!
+
+	// copy() function copies elements into a destination slice from a source slice and returns the number of elements copied.
+	// if the slices don't have the same no of elements, it copies the minimum of length of the slices
 	src := []int{10, 20, 30}
 	dst := make([]int, len(src))
-	n2 := copy(dst, src)
-	fmt.Println(src, dst, n2) // [10 20 30] [10 20 30] 3
+	nn1 := copy(dst, src)
+	fmt.Println(src, dst, nn1) // => [10 20 30] [10 20 30] 3
 
 	// SLICED EXPRESSION
 	// declaring an [5]int array
