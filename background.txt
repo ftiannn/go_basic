@@ -113,3 +113,9 @@ Strings in Go
 - 2 additional int types (byte -> alias for uint8) and (rune -> alias for int32)
 - byte and runes are used to distinguish characters from integers values
  
+Map in Go (unordered data structure)
+- collection type just like an array or a slice and store key:values pair
+- main advantages: add/get/delete operations take constants expected time
+- keys must be unique (same datatype - not recommended to use float, will lead to comparable issues)/ values dont have to be (not same datatype is ok)
+- cannot compare map to map, can only compare map to nil
+
