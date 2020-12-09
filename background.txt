@@ -119,3 +119,14 @@ Map in Go (unordered data structure)
 - keys must be unique (same datatype - not recommended to use float, will lead to comparable issues)/ values dont have to be (not same datatype is ok)
 - cannot compare map to map, can only compare map to nil
 
+Maps vs Slice vs Array
+TLDR: 
+- Array: a numbered sequence of elements of a single type with a fixed length. 
+	example: var x [5]int
+- Slice: segment of an array => indexable and have a changeable length (come with built in: make, copy, append)
+	example: var x []int OR x := make([]int, 5)
+- Map: unordered collection of key-value pairs. (aka associative array, a hash table or a dictionary). used to look up a value by its associated key
+	example:	x := map[string]int{}
+						x["First"] = 20
+						
+
