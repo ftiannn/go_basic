@@ -119,8 +119,8 @@ Map in Go (unordered data structure)
 - keys must be unique (same datatype - not recommended to use float, will lead to comparable issues)/ values dont have to be (not same datatype is ok)
 - cannot compare map to map, can only compare map to nil
 
-Maps vs Slice vs Array
 TLDR: 
+Maps vs Slice vs Array
 - Array: a numbered sequence of elements of a single type with a fixed length. 
 	example: var x [5]int
 - Slice: segment of an array => indexable and have a changeable length (come with built in: make, copy, append)
@@ -129,4 +129,8 @@ TLDR:
 	example:	x := map[string]int{}
 						x["First"] = 20
 						
-
+Structs: 
+- sequence of named elements => fields (each has name and type) => similar to class in OOP
+- GO does not have class object architecture => But GO have struct which hold complex data structure
+- Structs is nothign more than a schema containing a blueprint of data a structure will hold. This blueprint is fixed at compile time
+- Does not allow to change name or type of field at runtime. (cannot remove/add fields at runtime too)
